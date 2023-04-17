@@ -37,3 +37,5 @@ This demo only shows the front-end part of the code, but the text files with the
 The current approach of using pre-rendered videos in this experiment is flawed, as it does not account for variations in monitor sizes among users. Each user may have a slightly different monitor size, which can affect the angular velocity of the pre-rendered video and invalidate the results of the experiment.
 
 The next step in this research is to generate different angular velocities in the browser based on the monitor size input provided by the user. This will allow for monitoring of the frames per second (fps) displayed on the end-user system to ensure a consistent 60fps, assuming the same seating distance. This approach will address the issue of monitor size variability and provide more accurate and reliable results in the experiment.
+
+An example of this other approach is demonstrated in the MotionBlur.html file, where the top slider increases the number of samples of motion blur in the moving circle bellow.

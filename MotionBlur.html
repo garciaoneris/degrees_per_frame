@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* Define the ball element */
+    .ball {
+      width: 50px;
+      height: 50px;
+      border-radius: 25px;
+      background-color: red;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      animation-name: moveBall;
+      animation-duration: 2s;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+    }
+
+    /* Define the animation */
+    @keyframes moveBall {
+      0% {
+        left: 0;
+      }
+      50% {
+        left: calc(100% - 50px);
+      }
+      100% {
+        left: 0;
+      }
+    }
+
+    /* Style the slider */
+    .slider {
+      width: 80%;
+      margin: 20px auto;
+    }
+
+  </style>
+</head>
+<body>
+  <!-- Create the ball element -->
+  <div class="ball"></div>
+
+  <!-- Create the slider element -->
+  <input type="range" class="slider" min="0" max="5" value="0" step="1" />
+
+  <script>
+    // Get the slider element
+    var slider = document.querySelector('.slider');
+
+    // Add event listener for slider change
+    slider.addEventListener('input', function() {
+      // Get the number of balls based on slider value
+      var numBalls = parseInt(this.value) + 1;
+
+      // Clear any existing balls
+      var balls = document.querySelectorAll('.ball');
+      balls.forEach(function(ball) {
+        ball.parentNode.removeChild(ball);
+      });
+
+      // Create new balls with delays
+      for (var i = 0; i < numBalls; i++) {
+        var newBall = document.createElement('div');
+        newBall.className = 'ball';
+        newBall.style.animationDelay = (3 * i) + 'ms';
+        document.body.appendChild(newBall);
+      }
+    });
+  </script>
+</body>
+</html>
